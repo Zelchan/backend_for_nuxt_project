@@ -15,12 +15,10 @@ use App\Http\Controllers\CatController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/test', function (Request $request) {
-    return 'yo';
-});
-
-Route::get('/cat', [CatController::class, 'getCat'])->name('cat');
+Route::get('/catFact', [CatController::class, 'getCatFact'])->name('catFact');
+Route::get('/catFacts', [CatController::class, 'getCatFacts'])->name('catFacts');
+Route::get('/catFacts/{count}', [CatController::class, 'getCatFacts'])->name('catFacts');
